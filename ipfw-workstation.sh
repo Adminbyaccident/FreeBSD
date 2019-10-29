@@ -11,5 +11,8 @@ sysrc firewall_allowservices="any"
 # uncommenting the following up will allow them when issuing this script.
 # sysrc firewall_myservices="22/tcp 80/tcp 443/tcp"
 
+# Start up the firewall
+service ipfw start
+
 ## References:
 ## https://www.adminbyaccident.com/freebsd/how-to-freebsd/how-to-setup-a-simple-firewall-in-freebsd-using-ipfw/
