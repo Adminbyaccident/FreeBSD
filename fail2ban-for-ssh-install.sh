@@ -20,7 +20,6 @@ echo "[ssh-ipfw]
 enabled = true
 filter = sshd
 action = ipfw[name=SSH, port=ssh, protocol=tcp]
-#       sendmail-whois[name=SSH, dest=root@localhost, sender=noreply@localhost]
 logpath = /var/log/auth.log
 findtime = 600
 maxretry = 3
@@ -28,3 +27,6 @@ bantime = 604800" >> /usr/local/etc/fail2ban/jail.d/ssh-ipfw.local
 
 # Start the service
 service fail2ban start
+
+## References:
+## https://www.adminbyaccident.com/freebsd/how-to-freebsd/how-to-install-fail2ban-on-freebsd/
