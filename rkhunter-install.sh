@@ -22,3 +22,6 @@ sed -ip 's/#MAIL_CMD=mail/MAIL_CMD=mail/g' /usr/local/etc/rkhunter.conf
 
 #Update RKHunter sources
 rkhunter --update
+
+## References:
+## https://www.adminbyaccident.com/freebsd/how-to-install-rkhunter-on-freebsd/
