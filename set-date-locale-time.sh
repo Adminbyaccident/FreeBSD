@@ -16,7 +16,7 @@ pkg upgrade -y
 pkg install -y gsed
 
 # Set the locale globally
-gsed -i '50i\:charset=UTF-8:\' /etc/login.conf
+gsed -i '50i\:charset=UTF-8:\\' /etc/login.conf
 gsed -i '51i\:lang=xx_XX.UTF-8:' /etc/login.conf
 
 cap_mkdb /etc/login.conf
