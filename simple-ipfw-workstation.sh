@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Instructions on how to use this script 
+
+# chmod +x SCRIPTNAME.sh
+
+# sudo ./SCRIPTNAME.sh
+
 # Simple IPFW workstation firewall
 sysrc firewall_enable="YES"
 sysrc firewall_quiet="YES"
