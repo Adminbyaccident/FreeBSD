@@ -27,7 +27,7 @@ echo 'alias ll="ls -lah"' >> /usr/home/username/.bashrc
 echo "alias la='ls -A'" >> /usr/home/username/.bashrc
 echo "alias l='ls -CF'" >> /usr/home/username/.bashrc
 
-echo"
+echo "
 export CLICOLOR=\"YES\"
 export LSCOLORS=\"Cxfxcxdxgxegedabagacad\"
 " >> /usr/home/username/.bashrc
