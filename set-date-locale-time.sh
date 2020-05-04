@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Instructions on how to use this script 
+
+# chmod +x SCRIPTNAME.sh
+
+# sudo ./SCRIPTNAME.sh
+
 # Set server time correctly
 cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 
