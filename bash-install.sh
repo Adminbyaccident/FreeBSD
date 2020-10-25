@@ -17,20 +17,20 @@ pkg upgrade -y
 pkg install -y bash bash-completion
 
 # Configure bash
-touch .bashrc
+touch .bash_profile
 
-echo '[[ $PS1 && -f /usr/local/share/bash-completion/bash_completion.sh ]] && \' >> /usr/home/username/.bashrc
-echo 'source /usr/local/share/bash-completion/bash_completion.sh' >> /usr/home/username/.bashrc
+echo '[[ $PS1 && -f /usr/local/share/bash-completion/bash_completion.sh ]] && \' >> /usr/home/username/.bash_profile
+echo 'source /usr/local/share/bash-completion/bash_completion.sh' >> /usr/home/username/.bash_profile
 
 # Add some aliases so bash isn't totally dumb
-echo 'alias ll="ls -lah"' >> /usr/home/username/.bashrc
-echo "alias la='ls -A'" >> /usr/home/username/.bashrc
-echo "alias l='ls -CF'" >> /usr/home/username/.bashrc
+echo 'alias ll="ls -lah"' >> /usr/home/username/.bash_profile
+echo "alias la='ls -A'" >> /usr/home/username/.bash_profile
+echo "alias l='ls -CF'" >> /usr/home/username/.bash_profile
 
 echo "
 export CLICOLOR=\"YES\"
 export LSCOLORS=\"Cxfxcxdxgxegedabagacad\"
-" >> /usr/home/username/.bashrc
+" >> /usr/home/username/.bash_profile
 
 # Change the shell for a specific user
 chsh -s /usr/local/bin/bash username
