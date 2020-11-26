@@ -23,7 +23,7 @@ echo '[[ $PS1 && -f /usr/local/share/bash-completion/bash_completion.sh ]] && \'
 echo 'source /usr/local/share/bash-completion/bash_completion.sh' >> /usr/home/username/.bash_profile
 
 # Add some aliases so bash isn't totally dumb
-echo 'alias ll="ls -lah"' >> /usr/home/username/.bash_profile
+echo "alias ll='ls -lah'" >> /usr/home/username/.bash_profile
 echo "alias la='ls -A'" >> /usr/home/username/.bash_profile
 echo "alias l='ls -CF'" >> /usr/home/username/.bash_profile
 
