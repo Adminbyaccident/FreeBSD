@@ -1,14 +1,35 @@
 #!/bin/sh
+# Instructions on how to use this script:
+# chmod +x SCRIPTNAME.sh
+# sudo ./SCRIPTNAME.sh
+#
+# SCRIPT: iocage-auto-install.sh
+# AUTHOR: ALBERT VALBUENA
+# DATE: 04-05-2020
+# SET FOR: Production
+# (For Alpha, Beta, Dev, Test and Production)
+#
+# PLATFORM: FreeBSD 12/13
+#
+# PURPOSE: This script installs the iocage jail management platform on a FreeBSD system
+#
+# REV LIST:
+# DATE: 14-12-2021
+# BY: ALBERT VALBUENA
+# MODIFICATION: 14-12-2021
+#
+#
+# set -n # Uncomment to check your syntax, without execution.
+# # NOTE: Do not forget to put the comment back in or
+# # the shell script will not execute!
+
+##########################################################
+################ BEGINNING OF MAIN #######################
+##########################################################
 
 # This is an install script to automate installation of iocage on FreeBSD.
 # Iocage is a tool for managin FreeBSD Jails (think about Docker for containers on Linux)
 # Modify it at your convenience.
-
-# Instructions on how to use this script 
-
-# chmod +x SCRIPTNAME.sh
-
-# sudo ./SCRIPTNAME.sh
 
 # Change the default pkg repository from quarterly to latest
 sed -ip 's/quarterly/latest/g' /etc/pkg/FreeBSD.conf
@@ -18,7 +39,7 @@ sed -ip 's/quarterly/latest/g' /etc/pkg/FreeBSD.conf
 pkg upgrade -y
 
 # Install Iocage (it's written in Python)
-pkg install -y py37-iocage
+pkg install -y py38-iocage
 
 # Mount the file descriptor file system (mandatory)
 mount -t fdescfs null /dev/fd
