@@ -1,10 +1,31 @@
 #!/bin/sh
-
-# Instructions on how to use this script 
-
+# Instructions on how to use this script:
 # chmod +x SCRIPTNAME.sh
-
 # sudo ./SCRIPTNAME.sh
+#
+# SCRIPT: set-date-locale-time.sh
+# AUTHOR: ALBERT VALBUENA
+# DATE: 02-11-2019
+# SET FOR: Production
+# (For Alpha, Beta, Dev, Test and Production)
+#
+# PLATFORM: FreeBSD 12/13
+#
+# PURPOSE: This script installs the sets date and locale on a FreeBSD system
+#
+# REV LIST:
+# DATE: 14-12-2021
+# BY: ALBERT VALBUENA
+# MODIFICATION: 14-12-2021
+#
+#
+# set -n # Uncomment to check your syntax, without execution.
+# # NOTE: Do not forget to put the comment back in or
+# # the shell script will not execute!
+
+##########################################################
+################ BEGINNING OF MAIN #######################
+##########################################################
 
 # Set server time correctly
 cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime
