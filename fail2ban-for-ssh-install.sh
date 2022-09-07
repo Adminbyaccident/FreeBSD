@@ -14,9 +14,9 @@
 # PURPOSE: This script installs the fail2ban to protect SSH connections on a FreeBSD system
 #
 # REV LIST:
-# DATE: 14-12-2021
+# DATE: 07-09-2022
 # BY: ALBERT VALBUENA
-# MODIFICATION: 14-12-2021
+# MODIFICATION: 07-09-2022
 #
 #
 # set -n # Uncomment to check your syntax, without execution.
