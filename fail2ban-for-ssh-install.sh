@@ -35,7 +35,7 @@ sed -ip 's/quarterly/latest/g' /etc/pkg/FreeBSD.conf
 pkg upgrade -y
 
 # Install Fail2ban
-pkg install -y py38-fail2ban
+pkg install -y py39-fail2ban
 
 # Enable the service to be started/stopped/restarted/etc
 sysrc fail2ban_enable="YES"
