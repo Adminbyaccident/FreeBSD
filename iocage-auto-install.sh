@@ -39,7 +39,7 @@ sed -ip 's/quarterly/latest/g' /etc/pkg/FreeBSD.conf
 pkg upgrade -y
 
 # Install Iocage (it's written in Python)
-pkg install -y py38-iocage
+pkg install -y py39-iocage
 
 # Mount the file descriptor file system (mandatory)
 mount -t fdescfs null /dev/fd
