@@ -83,7 +83,7 @@ rdr-anchor "rdr/*"
 block in all
 pass out quick keep state
 antispoof for $ext_if inet
-pass in inet proto tcp from any to any port ssh http https flags S/SA keep state
+pass in inet proto tcp from any to any port ssh flags S/SA keep state
 ' >> /etc/pf.conf 
 
 # Enabling the PF firewall
