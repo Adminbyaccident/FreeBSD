@@ -56,7 +56,7 @@ sysrc bastille_enable="YES"
 
 # Enable Bastille options at boot time
 sysrc bastille_zfs_enable="YES"
-sysrc bastille_zfs_enable="zroot"
+sysrc bastille_zfs_zpool="zroot"
 
 # Configure Bastille main configuration file
 sed -i -e 's/bastille_zfs_enable=""/bastille_zfs_enable="YES"/g' /usr/local/etc/bastille/bastille.conf
