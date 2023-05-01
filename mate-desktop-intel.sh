@@ -52,8 +52,8 @@ sysrc slim_enable="YES"
 sysrc kld_list="i915kms"
 
 # Create the xinit entry in your user's directory
-touch /home/albert/.xinitrc
-echo "exec mate-session" >> /home/albert/.xinitrc
+touch /home/username/.xinitrc
+echo "exec mate-session" >> /home/username/.xinitrc
 
 # Final message
 echo "Mate has been installed in this system. It is a good idea to reboot now".
