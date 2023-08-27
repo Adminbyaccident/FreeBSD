@@ -51,7 +51,7 @@ echo "alias l='ls -CF'" >> /usr/home/username/.bash_profile
 echo "
 export CLICOLOR=\"YES\"
 export LSCOLORS=\"Cxfxcxdxgxegedabagacad\"
-" >> /usr/home/username/.bashrc
+" >> /usr/home/username/.bash_profile
 
 # Change the shell for a specific user
 chsh -s /usr/local/bin/bash username
