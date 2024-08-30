@@ -4,6 +4,11 @@ FreeBSD useful scripts
 - This is a list of some useful scripts for FreeBSD systems.
 - Almost every script has a reference article at the bottom, so anyone can read about how and why.
 
+## The firewall-check-and-install.sh script
+The firewall-check-and-install.sh script automatically verifies any available firewall installation on FreeBSD. It checks if IPFW, PF or IPFilter are configured on the system. 
+If any of these are found the script doesn't alter or modify any configuration or service.
+However, if there is no firewall on the system allows the user to either install a firewall or not and lets the user either install IPFW or PF for SSH and web services.
+
 ## The bash-install.sh script
 
 The bash-install.sh script installs the bash shell on FreeBSD. 
