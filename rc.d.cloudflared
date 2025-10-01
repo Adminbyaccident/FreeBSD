@@ -33,7 +33,7 @@ load_rc_config $name
 : ${cloudflared_enable:="NO"}
 : ${cloudflared_conf:="/usr/local/etc/cloudflared/config.yml"}
 : ${cloudflared_mode:="tunnel"}
-#: ${cloudflared_mode_options:="--url 127.0.0.1:8080"}
+: ${cloudflared_mode_options:="--url 127.0.0.1:8080 --no-autoupdate --no-tls-verify --protocol http2 run"} # Adjust the URL to your needs
 
 command="/usr/sbin/daemon"
 command_args="-o ${logfile} -p ${pidfile} -f ${procname} --config ${cloudflared_conf} ${cloudflared_mode} ${cloudflared_mode_options}"
