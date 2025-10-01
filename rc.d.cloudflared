@@ -35,10 +35,11 @@ cloudflared_stop()
 {
     echo "Stopping ${name}..."
     if [ -f "${pidfile}" ]; then
-        kill "$(cat ${pidfile})" && rm -f ${pidfile}
-    else
-        echo "No pidfile found"
+        kill "$(cat ${pidfile})" 2>/dev/null || true
+        rm -f ${pidfile}
     fi
+    # Fallback: kill any leftover processes
+    pkill -f "${procname} tunnel"
 }
 
 run_rc_command "$1"
