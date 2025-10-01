@@ -1,0 +1,44 @@
+#!/bin/sh
+#
+# PROVIDE: cloudflared
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+
+. /etc/rc.subr
+
+name="cloudflared"
+rcvar=cloudflared_enable
+
+command="/usr/local/bin/cloudflared"
+pidfile="/var/run/${name}.pid"
+procname="/usr/local/bin/cloudflared"
+logfile="/var/log/cloudflared.log"
+
+# Default flags (adjust if needed)
+# Example with a named tunnel config:
+cloudflared_flags="tunnel --config /usr/local/etc/cloudflared/config.yml --no-autoupdate --no-tls-verify --protocol http2 run"
+
+load_rc_config $name
+: ${cloudflared_enable:="NO"}
+
+start_cmd="${name}_start"
+stop_cmd="${name}_stop"
+
+cloudflared_start()
+{
+    echo "Starting ${name}..."
+    nohup ${command} ${cloudflared_flags} >> ${logfile} 2>&1 &
+    echo $! > ${pidfile}
+}
+
+cloudflared_stop()
+{
+    echo "Stopping ${name}..."
+    if [ -f "${pidfile}" ]; then
+        kill "$(cat ${pidfile})" && rm -f ${pidfile}
+    else
+        echo "No pidfile found"
+    fi
+}
+
+run_rc_command "$1"
