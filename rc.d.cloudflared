@@ -27,7 +27,7 @@ stop_cmd="${name}_stop"
 cloudflared_start()
 {
     echo "Starting ${name}..."
-    nohup ${command} ${cloudflared_flags} >> ${logfile} 2>&1 &
+    ${procname} ${cloudflared_flags} >> ${logfile} 2>&1 &
     echo $! > ${pidfile}
 }
 
