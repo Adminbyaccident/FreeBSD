@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# PROVIDE: vnstatd
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+
+. /etc/rc.subr
+
+name="vnstatd"
+rcvar=vnstatd_enable
+
+command="/usr/sbin/daemon"
+procname="/usr/sbin/daemon"
+pidfile="/var/run/${name}.pid"
+logfile="/var/log/${name}.log"
+
+vnstatd_bin="/usr/local/sbin/vnstatd"
+vnstatd_flags=""
+
+# Track the supervisor PID instead of the child
+command_args="-o ${logfile} -P ${pidfile} -r -- ${vnstatd_bin} ${vnstatd_flags}"
+
+load_rc_config $name
+: ${vnstatd_enable:="NO"}
+
+run_rc_command "$1"
