@@ -1,45 +1,41 @@
 #!/bin/sh
-#
+
 # PROVIDE: cloudflared
-# REQUIRE: LOGIN
-# KEYWORD: shutdown
+# REQUIRE: cleanvar DAEMON NETWORKING
+#
+# Options to configure cloudflared via /etc/rc.conf:
+#
+# cloudflared_enable (bool)     Enable service on boot
+#                               Default: NO
+#
+# cloudflared_conf (str)        Config file to use
+#                               Default: /usr/local/etc/cloudflared/config.yml
+#
+# cloudflared_mode (str)        Mode to run cloudflared as (e.g. 'tunnel',
+#                               or 'proxy-dns'). Should you use the default, a free
+#                               tunnel is set up for you.
+#                               Default: "tunnel"
+#
+# cloudflare_mode_options (str) Additional options used by the mode cloudflared
+#                               will be running.
+#                               Default: "--url 127.0.0.1:8080"
 
 . /etc/rc.subr
 
 name="cloudflared"
-rcvar=cloudflared_enable
-
-command="/usr/local/bin/cloudflared"
-pidfile="/var/run/${name}.pid"
-procname="/usr/local/bin/cloudflared"
+rcvar="cloudflared_enable"
 logfile="/var/log/cloudflared.log"
-
-# Default flags (adjust if needed)
-# Example with a named tunnel config:
-cloudflared_flags="tunnel --config /usr/local/etc/cloudflared/config.yml --no-autoupdate --no-tls-verify --protocol http2 run"
+pidfile="/var/run/cloudflared.pid"
+procname="/usr/local/bin/cloudflared"
 
 load_rc_config $name
+
 : ${cloudflared_enable:="NO"}
+: ${cloudflared_conf:="/usr/local/etc/cloudflared/config.yml"}
+: ${cloudflared_mode:="tunnel"}
+#: ${cloudflared_mode_options:="--url 127.0.0.1:8080"}
 
-start_cmd="${name}_start"
-stop_cmd="${name}_stop"
-
-cloudflared_start()
-{
-    echo "Starting ${name}..."
-    ${procname} ${cloudflared_flags} >> ${logfile} 2>&1 &
-    echo $! > ${pidfile}
-}
-
-cloudflared_stop()
-{
-    echo "Stopping ${name}..."
-    if [ -f "${pidfile}" ]; then
-        kill "$(cat ${pidfile})" 2>/dev/null || true
-        rm -f ${pidfile}
-    fi
-    # Fallback: kill any leftover processes
-    pkill -f "${procname} tunnel"
-}
+command="/usr/sbin/daemon"
+command_args="-o ${logfile} -p ${pidfile} -f ${procname} --config ${cloudflared_conf} ${cloudflared_mode} ${cloudflared_mode_options}"
 
 run_rc_command "$1"
